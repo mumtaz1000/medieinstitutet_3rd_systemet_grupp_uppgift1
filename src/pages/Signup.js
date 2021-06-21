@@ -33,7 +33,7 @@ function Signup(props) {
               <div className="field">
                 <label>
                   First Name
-                  <input {...register('firstName')}
+                  <input ref={register}
                     type="text"
                     name="firstName"
                     placeholder="First Name"
@@ -47,7 +47,7 @@ function Signup(props) {
                   <input type="text" 
                   name="lastName" 
                   placeholder="Last Name" 
-                  {...register('lastName')}
+                  ref={register}
                   />
                 </label>
               </div>
@@ -56,7 +56,7 @@ function Signup(props) {
               <label>
                 Email
                 <input type="email" name="email" placeholder="Email"  
-                {...register('email')}/>
+                ref={register}/>
               </label>
             </div>
             <div className="field">
@@ -64,7 +64,7 @@ function Signup(props) {
                 Password
                 <input type="password" name="password" 
                 placeholder="Password"  
-                {...register('password')}/>
+                ref={register}/>
               </label>
             </div>
 
@@ -83,4 +83,3 @@ function Signup(props) {
 }
 
 export default Signup;
-

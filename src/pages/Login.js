@@ -5,6 +5,16 @@ import {Link} from 'react-router-dom'
 function Login(props) {
   const {register, handleSubmit, reset} = useForm();
   const [isLoading, setLoading] = useState(false)
+
+  const routeOnLogin = async(user) => {
+    const token = await user.getIdTokenResult();
+    if(token.claims.admin){
+      props.history.push('/users')
+    }else{
+      props.history.push(`/profile/${user.uid}`)
+    }
+  }
+
   const onSubmit = async(data) =>{
     let user;
     setLoading(true)
@@ -15,7 +25,7 @@ function Login(props) {
       console.log(error)
     }
     if(user){
-        props.history.push(`/profile/${user.uid}`)
+      routeOnLogin(user)
     }
     else {
       setLoading(false)
@@ -34,7 +44,7 @@ function Login(props) {
               <label>
                 Email
                 <input type="email" name="email" placeholder="Email"  
-                {...register('email')}/>
+                ref={register}/>
               </label>
             </div>
             <div className="field">
@@ -42,7 +52,7 @@ function Login(props) {
                 Password
                 <input type="password" name="password" 
                 placeholder="Password"  
-                {...register('password')}/>
+                ref={register}/>
               </label>
             </div>
             <div className="field actions">
