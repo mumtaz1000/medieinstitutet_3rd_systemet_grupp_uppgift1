@@ -3,13 +3,13 @@ import { Route, Redirect } from 'react-router-dom'
 import {useSession} from '../firebase/UserProvider'
 
 const ProfileRedirect = ({component: Component, ...rest}) => {
-    const user = useSession()
+    const {user, isAdmin} = useSession()
 
     return (
         <Route {...rest} render={(props) => {
             const id = props.match.params.id;
 
-            if(!!user && user.uid===id){
+            if(!!user && (user.uid===id || isAdmin)){
                 return <Component {...props} />
             }
             else {
