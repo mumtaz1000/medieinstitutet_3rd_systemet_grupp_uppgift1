@@ -11,7 +11,7 @@ firebase.initializeApp({
     appId: "1:683178060846:web:f965f5dec7a6f8958d43bf",
     measurementId: process.env.REACT_APP_MEASUREMENT_ID,
   })
-console.log(firebase.app().options)
+
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
 

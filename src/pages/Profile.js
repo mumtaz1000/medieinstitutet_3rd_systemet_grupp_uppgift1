@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useSession } from '../firebase/UserProvider';
+//import { useSession } from '../firebase/UserProvider';
 import { firestore } from '../firebase/config';
 import { updateUserDocument } from '../firebase/user';
 import { ProfileImage } from '../ProfileImage';
+import { deleteUserAccount} from '../firebase/auth'
 
 const Profile = () => {
-  const { user } = useSession();
+ // const { user } = useSession();
   const params = useParams();
   const { register, setValue, handleSubmit } = useForm();
   const [userDocument, setUserDocument] = useState(null);
@@ -27,7 +28,7 @@ const Profile = () => {
       }
     });
     return unsubscribe;
-  }, [user.uid, setValue, params.id]);
+  }, [setValue, params.id]);
 
   const onSubmit = async (data) => {
     try {
@@ -42,6 +43,10 @@ const Profile = () => {
 
   if (!userDocument) {
     return null;
+  }
+
+  function deleteProfile(){
+   deleteUserAccount()  
   }
 
   const formClassname = `ui big form twelve wide column ${isLoading ? 'loading' : ''}`;
@@ -127,6 +132,7 @@ const Profile = () => {
             Submit
           </button>
         </form>
+        <button onClick={deleteProfile}>Delete</button>
       </div>
     </div>
   );

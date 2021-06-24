@@ -1,5 +1,5 @@
 import { firestore, storage } from "./config";
-
+import "firebase/auth";
 export const createUserDocument = async(user) => {
     const docRef = firestore.doc(`/users/${user.uid}`)
 
@@ -12,7 +12,7 @@ export const createUserDocument = async(user) => {
         state: '',
         zip: '',
         phone: '',
-        speciality: '', 
+        specialty: '', 
         ip:''
     }
     return docRef.set(userProfile)
@@ -43,3 +43,4 @@ export const getDownloadUrl = (userId) =>{
     const filePath = `users/${userId}/profile-image`;
     return storage.ref().child(filePath).getDownloadURL();
 }
+

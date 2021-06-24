@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import { createUserDocument } from './user';
+import {Link} from 'react-router-dom'
 export const signup= async({firstName, lastName, email, password})=>{
     const resp = await firebase.auth().createUserWithEmailAndPassword(email, password);
     const user = resp.user;
@@ -15,4 +16,14 @@ export const logout = () =>{
 export const login = async({email, password}) =>{
         const resp = await firebase.auth().signInWithEmailAndPassword(email, password);
         return resp.user
+}
+
+export const deleteUserAccount = () =>{
+    const user = firebase.auth().currentUser;
+    console.log(user.uid)
+    user.delete().then(() => {
+      console.log("Current user is deleted!")
+    }).catch((error) => {
+        <Link to="/login"> Login</Link>
+    });
 }
