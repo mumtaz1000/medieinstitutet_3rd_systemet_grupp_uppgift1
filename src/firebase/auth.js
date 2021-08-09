@@ -22,8 +22,8 @@ export const deleteUserAccount = () =>{
     const user = firebase.auth().currentUser;
     console.log(user.uid)
     user.delete().then(() => {
-      console.log("Current user is deleted!")
+      alert("Accont has been successfully deleted! Resfresh the page to login again.");
     }).catch((error) => {
-        <Link to="/login"> Login</Link>
+        <Link to="/login"> Login again to delete account!</Link>
     });
 }

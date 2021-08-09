@@ -6,7 +6,7 @@ import { firestore } from '../firebase/config';
 import { updateUserDocument } from '../firebase/user';
 import { ProfileImage } from '../ProfileImage';
 import { deleteUserAccount} from '../firebase/auth'
-
+import {Link} from 'react-router-dom'
 const Profile = () => {
  // const { user } = useSession();
   const params = useParams();
@@ -133,6 +133,7 @@ const Profile = () => {
           </button>
         </form>
         <button onClick={deleteProfile}>Delete</button>
+        <Link to="/createproduct">Create a new product</Link>
       </div>
     </div>
   );

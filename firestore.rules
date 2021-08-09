@@ -5,11 +5,10 @@ service cloud.firestore {
       allow read, write, update : if request.auth.uid == userId || request.auth.token.admin == true;
     }
      match /products/{productId} {
-      allow read, write, update : if request.auth.uid == userId || request.auth.token.admin == true;
-     
+      allow read, write, update : if request.auth.uid != null ;
     }
     match /bookings/{bookingId} {
-      allow read, write, update : if request.auth.uid == userId || request.auth.token.admin == true;
+      allow read, write, update : if request.auth.uid != null ;
     }
   }
 }

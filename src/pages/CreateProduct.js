@@ -6,7 +6,6 @@ function CreateProduct(props) {
   const {register, handleSubmit, reset} = useForm();
   const [isLoading, setLoading] = useState(false)
   const onSubmit = async(data) =>{
-    let newProduct;
     setLoading(true)
     try{
       console.log(data)
