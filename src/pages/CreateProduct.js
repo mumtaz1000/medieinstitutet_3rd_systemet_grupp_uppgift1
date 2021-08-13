@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useForm} from 'react-hook-form'
 import {createProduct} from '../firebase/product'
-//import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 function CreateProduct(props) {
   const {register, handleSubmit, reset} = useForm();
   const [isLoading, setLoading] = useState(false)
@@ -47,7 +47,7 @@ function CreateProduct(props) {
             <button className="ui primary button login" type="submit">
             Create product
             </button>
-             
+           
             
             </div>
           </form>

@@ -1,7 +1,7 @@
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("./grupp-uppgift1-user-systemet-firebase-adminsdk-hxjaa-341ca97082.json");
+var serviceAccount = require("./grupp-uppgift1-user-systemet-firebase-adminsdk-hxjaa-67e9d55a14.json");
 
 var uid = process.argv[2]
 admin.initializeApp({

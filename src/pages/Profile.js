@@ -132,8 +132,28 @@ const Profile = () => {
             Submit
           </button>
         </form>
-        <button onClick={deleteProfile}>Delete</button>
-        <Link to="/createproduct">Create a new product</Link>
+        <button onClick={deleteProfile}
+        style={{
+        padding:"10px",
+        backgroundColor:"red",
+        color:"white",
+        borderRadius:"5px"}}
+        >Delete Profile</button>
+        <Link to="/createproduct"
+        style={{textDecoration:"none",
+        padding:"10px",
+        backgroundColor:"green",
+        color:"white",
+        borderRadius:"5px",
+        marginLeft:"5px"}}>Create a new product</Link>
+        <Link to="/products"
+        style={{textDecoration:"none",
+        padding:"10px",
+        backgroundColor:"#004d4d",
+        color:"white",
+        borderRadius:"5px",
+        marginLeft:"5px",
+        fontStyle:"bold"}}>View all products</Link>
       </div>
     </div>
   );
